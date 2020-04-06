@@ -102,7 +102,7 @@ public class Generateur {
 	}
 	
 	private String genererFonction(Noeud noeud,Tds tds) {
-	    String resultat = "\n\t|Génération de fonction\n";
+	    String resultat = "\n\t|fonction\n";
         Fonction f = new Fonction("");
         if (noeud instanceof Fonction) {
             f = (Fonction) noeud;
@@ -117,7 +117,7 @@ public class Generateur {
 
 
 	private String genererBloc(Noeud noeud,Tds tds) {
-    	String resultat = "\n\t|Génération de bloc\n";
+    	String resultat = "\n\t|bloc\n";
     	for (int i = 0; i < noeud.getFils().size(); i++) {
             resultat += genererAssembleur(noeud.getFils().get(i),tds);
         }
@@ -125,19 +125,19 @@ public class Generateur {
     }
 
 	private String genererAffectation(Noeud noeud,Tds tds) {
-	    String resultat = "\n\t|Génération du Affectation\n";
+	    String resultat = "\n\t|Affectation\n";
 		Idf i = new Idf(0);
 		if(noeud.getFils().get(0) instanceof Idf) {
 			i = (Idf) noeud.getFils().get(0);
 		}
 		resultat += genererAssembleur(noeud.getFils().get(1),tds)
 				+ "\tPOP(R0)\n"
-				+ "\tST(R0, "+rechercheFonction(i, tds)+i.getValeur()+") |Fin Affectation\n"; 
+				+ "\tST(R0, "+i.getFonction()+i.getValeur()+") |Fin Affectation\n"; 
 		return resultat;
 	}
 
 	private String genererSi(Noeud noeud,Tds tds) {
-	    String resultat = "\n\t|Génération du Si\n";
+	    String resultat = "\n\t| Si\n";
 	    Si s = new Si(0);
         if(noeud instanceof Si) {
             s = (Si) noeud;
@@ -154,7 +154,7 @@ public class Generateur {
 	}
 
 	private String genererTantque(Noeud noeud,Tds tds) {
-	    String resultat = "\n\t|Génération du Tant Que\n";
+	    String resultat = "\n\t|Tant Que\n";
 		TantQue tq = new TantQue(0);
         if (noeud instanceof TantQue) {
             tq = (TantQue) noeud;
@@ -170,7 +170,7 @@ public class Generateur {
 	}
 
    private String genererEcrire(Noeud noeud,Tds tds) {
-       String resultat = "\n\t|Génération du Ecrire\n";
+       String resultat = "\n\t|Ecrire\n";
         resultat += genererAssembleur(noeud.getFils().get(0),tds)
                 + "\tPOP(r0)\n"
         		+ "\tWRINT() |Fin Ecrire\n";
@@ -178,7 +178,7 @@ public class Generateur {
     }
 
     private String genererRetour(Noeud noeud,Tds tds) {
-        String resultat = "\n\t|Génération du Retourne\n";
+        String resultat = "\n\t|Retourne\n";
         Retour r = new Retour("");
         if (noeud instanceof Retour) {
             r = (Retour) noeud;
@@ -189,18 +189,18 @@ public class Generateur {
     }
 
     private String genererPlus(Noeud noeud,Tds tds) {
-        String resultat = "\n\t|Génération du Plus\n";
+        String resultat = "\n\t|Plus\n";
         resultat += genererAssembleur(noeud.getFils().get(0),tds)
                 + genererAssembleur(noeud.getFils().get(1),tds)
                 + "\tPOP(R1)\n"
                 + "\tPOP(R0)\n"
                 + "\tADD(R0, R1, R2)\n"
-                + "\tPUSH(R2) |Fin Plus\n";
+                + "\tPUSH(R2) |Fin Plus\n\n";
         return resultat;
     }
 
     private String genererMoins(Noeud noeud,Tds tds) {
-        String resultat = "\n\t|Génération du Moins\n";
+        String resultat = "\n\t|Moins\n";
         resultat += genererAssembleur(noeud.getFils().get(0),tds)
                 + genererAssembleur(noeud.getFils().get(1),tds)
                 + "\tPOP(r1)\n"
@@ -211,29 +211,29 @@ public class Generateur {
     }
 
     private String genererDivision(Noeud noeud,Tds tds) {
-        String resultat = "\n\t|Génération du Div\n";
+        String resultat = "\n\t|Division\n";
         resultat += genererAssembleur(noeud.getFils().get(0),tds)
                 + genererAssembleur(noeud.getFils().get(1),tds)
                 + "\tPOP(R1)\n"
                 + "\tPOP(r0)\n"
                 + "\tDIV(r0,r1,r2)\n"
-                + "\tPUSH(r2) |Fin Div\n";
+                + "\tPUSH(r2) |Fin Division\n";
         return resultat;
     }
 
     private String genererMultiplication(Noeud noeud,Tds tds) {
-        String resultat = "\n\t|Génération du Mul\n";
+        String resultat = "\n\t|Multiplicztion\n";
         resultat += genererAssembleur(noeud.getFils().get(0),tds)
                 + genererAssembleur(noeud.getFils().get(1),tds)
                 + "\tPOP(R1)\n"
                 + "\tPOP(r0)\n"
                 + "\tMUL(r0,r1,r2)\n"
-                + "\tPUSH(r2) |Fin Mul\n";
+                + "\tPUSH(r2) |Fin Multiplication\n";
         return resultat;
     }
 
     private String genererSuperieur(Noeud noeud,Tds tds) {
-        String resultat = "\n\t|Génération du Sup\n";
+        String resultat = "\n\t|Superieur\n";
         resultat += genererAssembleur(noeud.getFils().get(0),tds)
                 + genererAssembleur(noeud.getFils().get(1),tds)
                 + "\tPOP(R1)\n"
@@ -244,7 +244,7 @@ public class Generateur {
     }
 
     private String genererInferieur(Noeud noeud,Tds tds) {
-        String resultat = "\n\t|Génération du Inf\n";
+        String resultat = "\n\t|Inferieur\n";
         resultat += genererAssembleur(noeud.getFils().get(0),tds)
                 + genererAssembleur(noeud.getFils().get(1),tds)
                 + "\tPOP(R1)\n"
@@ -255,7 +255,7 @@ public class Generateur {
     }
 
     private String genererSuperieurEgal(Noeud noeud,Tds tds) {
-        String resultat = "\n\t|Génération du Supegal\n";
+        String resultat = "\n\t|Superieur ou egal\n";
         resultat += genererAssembleur(noeud.getFils().get(0),tds)
                 + genererAssembleur(noeud.getFils().get(1),tds)
                 + "\tPOP(R1)\n"
@@ -266,7 +266,7 @@ public class Generateur {
     }
 
     private String genererInferieurEgal(Noeud noeud,Tds tds) {
-        String resultat = "\n\t|Génération du Infegal\n";
+        String resultat = "\n\t|Inferieur ou egal\n";
         resultat += genererAssembleur(noeud.getFils().get(0),tds)
                 + genererAssembleur(noeud.getFils().get(1),tds)
                 + "\tPOP(R1)\n"
@@ -277,7 +277,7 @@ public class Generateur {
     }
 
     private String genererEgal(Noeud noeud,Tds tds) {
-        String resultat = "\n\t|Génération du Egal\n";
+        String resultat = "\n\t|Egal\n";
         resultat += genererAssembleur(noeud.getFils().get(0),tds)
                 + genererAssembleur(noeud.getFils().get(1),tds)
                 + "\tPOP(R1)\n"
@@ -288,48 +288,48 @@ public class Generateur {
     }
 
     private String genererDifferent(Noeud noeud,Tds tds) {
-        String resultat = "\n\t|Génération du Diff\n";
+        String resultat = "\n\t| Diferrencef\n";
         resultat += genererAssembleur(noeud.getFils().get(0),tds)
                 + genererAssembleur(noeud.getFils().get(1),tds)
                 + "\tPOP(R1)\n"
                 + "\tPOP(r0)\n"
                 + "\tCMPEQ(r0,r1,r2)\n"
                 + "\tCMPEQC(R2,0,R3)\n"
-                + "\tPUSH(r) |Fin Diff\n";
+                + "\tPUSH(r) |Fin Difference\n";
         return resultat;
     }
 
     private String genererIdf(Noeud noeud, Tds tds) {
-        String resultat = "\n\t|Génération du Idf\n";
+        String resultat = "\n\t|Debut Idf\n";
         Idf i = new Idf(0);
         if (noeud instanceof Idf) {
             i = (Idf) noeud;
         }
-        resultat += "\tLD("+rechercheFonction((Idf)noeud, tds)+i.getValeur()+", R0)\n"
+        resultat += "\tLD("+i.getFonction()+i.getValeur()+", R0)\n"
                 + "\tPUSH(R0) |Fin Idf\n";
         return resultat;
     }
 
     private String genererConstante(Noeud noeud) {
-        String resultat = "\n\t|Génération du Const\n";
+        String resultat = "\n\t|Constante\n";
         Constante c = new Constante(0);
         if (noeud instanceof Constante) {
             c = (Constante) noeud;
         }
         resultat += "\tCMOVE("+c.getValeur()+", r0) \n"
-                + "\tPUSH(r0) |Fin Const\n";
+                + "\tPUSH(r0) |Fin Constante\n";
         return resultat;
     }
 
     private String genererLire(Noeud noeud) {
-        String resultat = "\n\t|Génération du Lire\n";
+        String resultat = "\n\t|Lire\n";
         resultat = "\tRDINT()\n"
                 + "\tPUSH(R0) |Fin Lire\n";
         return resultat;
     }
 
-    private String genererAppel(Noeud noeud, Tds tds) { //PARAMETRES ?
-        String resultat = "\n\t|Génération du Appel\n";
+    private String genererAppel(Noeud noeud, Tds tds) {
+        String resultat = "\n\t|Appel\n";
         Appel a = new Appel("");
         if (noeud instanceof Appel) {
             a = (Appel) noeud;
@@ -394,11 +394,4 @@ public class Generateur {
 		return globales + locales + "\n";
 	}
 	
-	/*
-	 * a faire
-	 */
-	private String rechercheFonction(Idf n, Tds tds) {
-       String res ="";
-        return res;
-    }
 }
