@@ -15,13 +15,17 @@ public class Generateur {
 		assembleur += ".include beta.uasm \n" + ".include intio.uasm \n" + ".options tty \n\n" + "CMOVE(pile,sp) \n"
 				+ "BR(debut) \n";
 		// generation du code pour les symboles du tds
+		assembleur += "|Declaration des données";
 		assembleur += genererVariables(tds);
-		// appel de la fonction main
-		assembleur += "debut :\n" + "\tCALL(main)\n" + "\tHALT()\n";
+		
 		for (int i = 0; i < node.getFils().size(); i++) {
 			// generation du code pour chaque noeud
 			assembleur += genererAssembleur(node.getFils().get(i), tds);
 		}
+		
+		// appel de la fonction main
+		assembleur += "debut :\n" + "\tCALL(main)\n" + "\tHALT()\n";
+		
 
 		assembleur += "pile : \n";
 
