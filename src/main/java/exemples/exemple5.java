@@ -3,12 +3,13 @@ package exemples;
 import java.util.Arrays;
 
 import arbre.*;
+import tds.Main;
+import tds.Tds;
 
 public class exemple5 {
-	
-	Noeud programme;
-	
-	public void programme() {
+		
+	public static Noeud getNoeud() {
+		Prog prog = new Prog();
 		Fonction main = new Fonction("main");
 		Idf i = new Idf("i");
 		Lire lire1 = new Lire();
@@ -42,7 +43,12 @@ public class exemple5 {
 		
 		main.ajouterDesFils(Arrays.asList(affect1, si1));
 		
-		this.programme.ajouterUnFils(main);
+		prog.ajouterUnFils(main);
+		return prog;
 		
+	}
+	
+	public static Tds getTds() {
+		return Main.exemple5();
 	}
 }

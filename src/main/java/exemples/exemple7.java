@@ -4,11 +4,13 @@ import java.util.ArrayList;
 import java.util.Arrays;
 
 import arbre.*;
+import tds.Main;
+import tds.Tds;
 
 public class exemple7 {
-	Noeud programme;
 	
-	public void programme() {
+	public static Noeud getNoeud() {
+		Prog prog = new Prog();
 		Fonction main = new Fonction("main");
 		Idf a = new Idf("a");
 		Idf i = new Idf("i");
@@ -52,7 +54,12 @@ public class exemple7 {
 		main.ajouterUnFils(appel_f);
 		main.ajouterUnFils(ecrire1);
 		
-		programme.ajouterUnFils(f);
-		programme.ajouterUnFils(main);
+		prog.ajouterUnFils(f);
+		prog.ajouterUnFils(main);
+		return prog;
+	}
+	
+	public static Tds getTds() {
+		return Main.exemple7();
 	}
 }

@@ -1,12 +1,13 @@
 package exemples;
 
 import arbre.*;
+import tds.Main;
+import tds.Tds;
 
 public class exemple3 {
 	
-	Noeud programme;
-	
-	public void programme() {
+	public static Noeud getNoeud() {
+		Prog prog = new Prog();
 		Idf i = new Idf (10);
 		Idf j = new Idf (20);
 		Idf k = new Idf("k");
@@ -36,7 +37,11 @@ public class exemple3 {
 		main.ajouterUnFils(affect1);
 		main.ajouterUnFils(affect2);
 		
-		this.programme.ajouterUnFils(main);
+		prog.ajouterUnFils(main);
+		return prog;
 	}
 	
+	public static Tds getTds() {
+		return Main.exemple3();
+	}
 }

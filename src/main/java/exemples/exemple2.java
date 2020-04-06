@@ -1,19 +1,27 @@
 package exemples;
 
 import arbre.*;
+import tds.Main;
+import tds.Tds;
 
 public class exemple2 {
 	Noeud programme;
 	
-	public void programme() {
-		Idf i = new Idf(10);
-		Idf j = new Idf(20);
-		Idf k = new Idf("k");
-		Idf l = new Idf("l");
-		
-		Fonction main = new Fonction("main");
-		
-		this.programme.ajouterUnFils(main);
+
+	public static Noeud getNoeud() {
+		 Prog prog = new Prog();
+	        Fonction main = new Fonction("main");
+	        
+	        Idf i3 = new Idf("i");
+	        Idf j3 = new Idf("j");
+	        Idf k3 = new Idf("k");
+	        Idf l3 = new Idf("l");
+
+	        prog.ajouterUnFils(main);
+	        return prog;
+	}
+	public static Tds getTds() {
+		return Main.exemple2();
 	}
 	
 }

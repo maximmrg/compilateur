@@ -4,11 +4,13 @@ import java.util.ArrayList;
 import java.util.Arrays;
 
 import arbre.*;
+import tds.Main;
+import tds.Tds;
 
 public class exemple6 {
-	Noeud programme;
 	
-	public void programme() {
+	public static Noeud getNoeud() {
+		Prog prog = new Prog();
 		Fonction main = new Fonction("main");
 		Idf i = new Idf("i");
 		Constante c0 = new Constante(0);
@@ -42,6 +44,11 @@ public class exemple6 {
 		tq1.setBlocAlors(bloc1);		
 		
 		main.ajouterDesFils(Arrays.asList(affect1, tq1));
-		this.programme.ajouterUnFils(main);
+		prog.ajouterUnFils(main);
+		return prog;
+	}
+	
+	public static Tds getTds() {
+		return Main.exemple6();
 	}
 }

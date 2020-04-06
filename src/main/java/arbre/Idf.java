@@ -26,10 +26,24 @@ package arbre;
  * Created at 28 févr. 2019
  */
 public class Idf extends NoeudObj {
+	
+	private Fonction fonction;
 	//constructeur
 	public Idf(Object valeur) {
 		setCat(Categories.IDF);
 		setValeur(valeur);
+		this.fonction = null;
 		setFils(null); //feuille
+	}
+	
+	public Idf(Object valeur, Fonction fonction) {
+		setCat(Categories.IDF);
+		setValeur(valeur);
+		this.fonction = fonction;
+		setFils(null); //feuille
+	}
+	
+	public Fonction getFonction() {
+		return fonction;
 	}
 }

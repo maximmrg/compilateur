@@ -1,12 +1,23 @@
 package exemples;
 
+import java.util.logging.Logger;
+
 import arbre.*;
+import tds.Main;
+import tds.Symbole;
+import tds.Tds;
 
 public class exemple1 {
-	Noeud programme;
-	
-	public void programme() {
-		Fonction main = new Fonction("main");
-		this.programme.ajouterUnFils(main);
+	private static final Logger LOG = Logger.getLogger(Main.class.getName());
+	public static Noeud getNoeud() {
+		Prog prog = new Prog();
+        Fonction main = new Fonction("main");
+        prog.ajouterUnFils(main);
+        return prog;
+
+	}
+
+	public static Tds getTds() {
+		return Main.exemple1();
 	}
 }

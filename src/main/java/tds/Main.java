@@ -32,24 +32,24 @@ public class Main {
 
 	public static void main(String[] args) {
 		System.out.println("Exemple 1");
-		exemple1();
+		System.out.println(exemple1());
 		System.out.println("Exemple 2");
-		exemple2();
+		System.out.println(exemple2());
 		System.out.println("Exemple 3");
-		exemple3();
+		System.out.println(exemple3());
 		System.out.println("Exemple 4");
-		exemple4();
+		System.out.println(exemple4());
 		System.out.println("Exemple 5");
-		exemple5();
+		System.out.println(exemple5());
 		System.out.println("Exemple 6");
-		exemple6();
+		System.out.println(exemple6());
 		System.out.println("Exemple 7");
-		exemple7();
+		System.out.println(exemple7());
 		System.out.println("Exemple 8");
-		exemple8();
+		System.out.println(exemple8());
 	}
 
-	public static void exemple1() {
+	public static Tds exemple1() {
 		Tds tds = new Tds();
 		// remplissage
 		try {
@@ -59,10 +59,10 @@ public class Main {
 		} catch (Exception e) {
 			LOG.warning(e.getMessage());
 		}
-		System.out.println(tds.toString());
+		return tds;
 	}
 
-	public static void exemple2() {
+	public static Tds exemple2() {
 		Tds tds = new Tds();
 		// remplissage
 		try {
@@ -94,11 +94,11 @@ public class Main {
 		} catch (Exception e) {
 			LOG.warning(e.getMessage());
 		}
-		System.out.println(tds.toString());
+		return tds;
 
 	}
 
-	public static void exemple3() {
+	public static Tds exemple3() {
 		Tds tds = new Tds();
 		// remplissage
 		try {
@@ -131,10 +131,10 @@ public class Main {
 		} catch (Exception e) {
 			LOG.warning(e.getMessage());
 		}
-		System.out.println(tds.toString());
+		return tds;
 	}
 
-	public static void exemple4() {
+	public static Tds exemple4() {
 		Tds tds = new Tds();
 		// remplissage
 		try {
@@ -156,10 +156,10 @@ public class Main {
 		} catch (Exception e) {
 			LOG.warning(e.getMessage());
 		}
-		System.out.println(tds.toString());
+		return tds;
 	}
 
-	public static void exemple5() {
+	public static Tds exemple5() {
 		Tds tds = new Tds();
 		// remplissage
 		try {
@@ -174,10 +174,10 @@ public class Main {
 		} catch (Exception e) {
 			LOG.warning(e.getMessage());
 		}
-		System.out.println(tds.toString());
+		return tds;
 	}
 
-	public static void exemple6() {
+	public static Tds exemple6() {
 		Tds tds = new Tds();
 		// remplissage
 		try {
@@ -200,10 +200,10 @@ public class Main {
 			LOG.warning(e.getMessage());
 		}
 
-		System.out.println(tds.toString());
+		return tds;
 	}
 
-	public static void exemple7() {
+	public static Tds exemple7() {
 		Tds tds = new Tds();
 		// remplissage
 		try {
@@ -244,10 +244,10 @@ public class Main {
 		} catch (Exception e) {
 			LOG.warning(e.getMessage());
 		}
-		System.out.println(tds.toString());
+		return tds;
 	}
 
-	public static void exemple8() {
+	public static Tds exemple8() {
 		Tds tds = new Tds();
 		// remplissage
 		try {
@@ -287,6 +287,6 @@ public class Main {
 		} catch (Exception e) {
 			LOG.warning(e.getMessage());
 		}
-		System.out.println(tds.toString());
+		return tds;
 	}
 }
