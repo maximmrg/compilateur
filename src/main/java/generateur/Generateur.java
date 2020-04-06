@@ -115,7 +115,7 @@ public class Generateur {
         for (int i = 0; i < noeud.getFils().size(); i++) {
             resultat += genererAssembleur(noeud.getFils().get(i),tds);
         }
-        resultat +=  "\tRTN() |Fin Fonction\n";
+        resultat +=  "\tRTN() \n\t |Fin Fonction\n";
         return resultat;
 	}
 
@@ -136,7 +136,7 @@ public class Generateur {
 		}
 		resultat += genererAssembleur(noeud.getFils().get(1),tds)
 				+ "\tPOP(R0)\n"
-				+ "\tST(R0, "+i.getFonction()+i.getValeur()+") |Fin Affectation\n"; 
+				+ "\tST(R0, "+i.getFonction()+i.getValeur()+")  \n\t |Fin Affectation\n\n"; 
 		return resultat;
 	}
 
@@ -146,14 +146,14 @@ public class Generateur {
         if(noeud instanceof Si) {
             s = (Si) noeud;
         }
-		resultat += genererAssembleur(s.getFils().get(0),tds)
+		resultat += genererAssembleur(s.getCondition(),tds)
 				+ "\tPOP(R0)\n"
 				+ "\tBF(R0, sinon"+s.getValeur()+")\n"
-				+ genererBloc(s.getFils().get(1),tds)
+				+ genererBloc(s.getBlocAlors(),tds)
 				+ "\tBR(fsi"+s.getValeur()+")\n"
 				+ "sinon"+s.getValeur()+" :\n"
-				+ genererBloc(s.getFils().get(2),tds)
-				+ "fsi"+s.getValeur()+" : |Fin Si\n";
+				+ genererBloc(s.getBlocSinon(),tds)
+				+ "fsi"+s.getValeur()+" : \n\t|Fin Si\n\n";
 		return resultat;
 	}
 
@@ -169,7 +169,7 @@ public class Generateur {
 		        + "\tBF(r0, finboucle"+tq.getValeur()+")\n"
 		        + genererBloc(tq.getBloc(),tds)
 		        + "\tBR(boucle"+tq.getValeur()+")\n"
-		        + "finboucle"+tq.getValeur()+" : |Fin Tant Que\n";
+		        + "finboucle"+tq.getValeur()+" : |Fin Tant Que\n\n";
 		return resultat;
 	}
 

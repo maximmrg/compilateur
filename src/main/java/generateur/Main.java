@@ -14,7 +14,7 @@ public class Main {
 		System.out.println("Exemple 4");
 		System.out.println(exemple4());
 		System.out.println("Exemple 5");
-		//System.out.println(exemple5());
+		System.out.println(exemple5());
 		System.out.println("Exemple 6");
 		System.out.println(exemple6());
 		System.out.println("Exemple 7");

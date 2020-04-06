@@ -32,10 +32,11 @@ public class Si extends NoeudInt {
 	public Si(int valeur) {
 		setValeur(valeur);
 		setCat(Categories.SI);
-		setFils(new ArrayList<Noeud>(3));
-		this.getFils().set(0, null);
-		this.getFils().set(1, new Bloc());// vide par défaut
-		this.getFils().set(2, new Bloc());// vide par défaut
+		ArrayList<Noeud> fils = new ArrayList<Noeud>(3);
+		fils.add(null);
+		fils.add(new Bloc());
+		fils.add(new Bloc());
+		setFils(fils);
 	}
 	//methodes
 	/**
