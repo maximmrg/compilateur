@@ -55,7 +55,7 @@ public class Si extends NoeudInt {
 	 * @return le bloc si faux
 	 */
 	public Bloc getBlocSinon() {
-		return (Bloc) getFils().get(1);
+		return (Bloc) getFils().get(2);
 	}
 	/**
 	 * Ajoute une condition

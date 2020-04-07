@@ -226,7 +226,7 @@ public class Generateur {
     }
 
     private String genererMultiplication(Noeud noeud,Tds tds) {
-        String resultat = "\n\t|Multiplicztion\n";
+        String resultat = "\n\t|Multiplication\n";
         resultat += genererAssembleur(noeud.getFils().get(0),tds)
                 + genererAssembleur(noeud.getFils().get(1),tds)
                 + "\tPOP(R1)\n"

@@ -40,7 +40,7 @@ public class Afficheur extends Application {
 	private static Noeud arbre = null;
 	//methodes
 	private static TreeItem<Noeud> buildTreeItem(Noeud n) {
-		TreeItem<Noeud> res = new TreeItem<>(n);
+		TreeItem<Noeud> res = new TreeItem<Noeud>(n);
 		if (n.estFeuille()) {
 			return res;
 		}
@@ -65,7 +65,7 @@ public class Afficheur extends Application {
 	public void start(Stage primaryStage) throws Exception {
 	    StackPane root = new StackPane();
 	    root.setPadding(new Insets(5));
-	    TreeView<Noeud> tree = new TreeView<>(buildTreeItem(arbre));
+	    TreeView<Noeud> tree = new TreeView<Noeud>(buildTreeItem(arbre));
 	    root.getChildren().add(tree);		
 	    primaryStage.setTitle("Arbre abstrait");
 	    primaryStage.setScene(new Scene(root, 300, 250));

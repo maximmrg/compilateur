@@ -5,11 +5,18 @@ import java.util.Arrays;
 
 import arbre.*;
 import tds.Main;
+import tds.Symbole;
 import tds.Tds;
 
 public class exemple6 {
 	
-	public static Noeud getNoeud() {
+	public static Noeud getNoeud() throws Exception {
+		Tds tds = new Tds();
+        Symbole s = tds.ajouter("main",Symbole.CAT_FONCTION,Symbole.SCOPE_GLOBAL,Symbole.TYPE_VOID);
+        Symbole s2 = tds.ajouter("i",Symbole.CAT_GLOBAL,Symbole.SCOPE_GLOBAL,Symbole.TYPE_ENTIER);
+        Symbole s3 = tds.ajouter("n",Symbole.CAT_GLOBAL,Symbole.SCOPE_GLOBAL,Symbole.TYPE_ENTIER);
+        s3.set_valeur(5);
+		
 		Prog prog = new Prog();
 		Fonction main = new Fonction("main");
 		Idf i = new Idf("i");

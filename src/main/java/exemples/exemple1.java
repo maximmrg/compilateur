@@ -9,7 +9,10 @@ import tds.Tds;
 
 public class exemple1 {
 	private static final Logger LOG = Logger.getLogger(Main.class.getName());
-	public static Noeud getNoeud() {
+	public static Noeud getNoeud() throws Exception {
+		Tds tds = new Tds();
+        Symbole s = tds.ajouter("main",Symbole.CAT_FONCTION, Symbole.SCOPE_GLOBAL, Symbole.TYPE_VOID);
+		
 		Prog prog = new Prog();
         Fonction main = new Fonction("main");
         prog.ajouterUnFils(main);

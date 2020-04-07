@@ -4,7 +4,7 @@ import exemples.*;
 
 public class Main {
 
-	public static void main(String[] args) {
+	public static void main(String[] args) throws Exception {
 		System.out.println("Exemple 1");
 		System.out.println(exemple1());
 		System.out.println("Exemple 2");
@@ -23,42 +23,42 @@ public class Main {
 		System.out.println(exemple8());
 	}
 	
-	private static String exemple1() {
+	private static String exemple1() throws Exception {
 		Generateur g = new Generateur();
 		String res = g.generer(exemple1.getNoeud(), exemple1.getTds());
 		return res;
 	}
-	private static String exemple2() {
+	private static String exemple2() throws Exception {
 		Generateur g = new Generateur();
 		String res = g.generer(exemple2.getNoeud(), exemple2.getTds());
 		return res;
 	}
-	private static String exemple3() {
+	private static String exemple3() throws Exception {
 		Generateur g = new Generateur();
 		String res = g.generer(exemple3.getNoeud(), exemple3.getTds());
 		return res;
 	}
-	private static String exemple4() {
+	private static String exemple4() throws Exception{
 		Generateur g = new Generateur();
 		String res = g.generer(exemple4.getNoeud(), exemple4.getTds());
 		return res;
 	}
-	private static String exemple5() {
+	private static String exemple5() throws Exception{
 		Generateur g = new Generateur();
 		String res = g.generer(exemple5.getNoeud(), exemple5.getTds());
 		return res;
 	}
-	private static String exemple6() {
+	private static String exemple6() throws Exception{
 		Generateur g = new Generateur();
 		String res = g.generer(exemple6.getNoeud(), exemple6.getTds());
 		return res;
 	}
-	private static String exemple7() {
+	private static String exemple7() throws Exception{
 		Generateur g = new Generateur();
 		String res = g.generer(exemple7.getNoeud(), exemple7.getTds());
 		return res;
 	}
-	private static String exemple8() {
+	private static String exemple8() throws Exception{
 		Generateur g = new Generateur();
 		String res = g.generer(exemple8.getNoeud(), exemple8.getTds());
 		return res;
