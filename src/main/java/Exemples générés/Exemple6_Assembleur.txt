@@ -1,0 +1,103 @@
+.include beta.uasm 
+.include intio.uasm 
+.options tty 
+
+CMOVE(pile,sp) 
+BR(debut) 
+|Declaration des données
+i: LONG(0)
+n: LONG(5)
+
+
+	|fonction
+main :
+	PUSH(LP)
+	PUSH(BP)
+	MOVE(SP,BP)
+
+	|Affectation
+
+	|Constante
+	CMOVE(0, r0) 
+	PUSH(r0) |Fin Constante
+	POP(R0)
+	ST(R0, i)  
+	 |Fin Affectation
+
+
+	|Tant Que
+boucle1 : 
+
+	|Inferieur
+
+	|Debut Idf
+	LD(i, R0)
+	PUSH(R0) |Fin Idf
+
+	|Debut Idf
+	LD(n, R0)
+	PUSH(R0) |Fin Idf
+	POP(R1)
+	POP(r0)
+	CMPLT(r0,r1,r2)
+	PUSH(r2) |Fin Inf
+	POP(r0)
+	BF(r0, finboucle1)
+
+	|bloc
+
+	|Inferieur
+
+	|Debut Idf
+	LD(i, R0)
+	PUSH(R0) |Fin Idf
+
+	|Debut Idf
+	LD(n, R0)
+	PUSH(R0) |Fin Idf
+	POP(R1)
+	POP(r0)
+	CMPLT(r0,r1,r2)
+	PUSH(r2) |Fin Inf
+
+	|Ecrire
+
+	|Debut Idf
+	LD(i, R0)
+	PUSH(R0) |Fin Idf
+	POP(r0)
+	WRINT() |Fin Ecrire
+
+	|Affectation
+
+	|Plus
+
+	|Debut Idf
+	LD(i, R0)
+	PUSH(R0) |Fin Idf
+
+	|Constante
+	CMOVE(1, r0) 
+	PUSH(r0) |Fin Constante
+	POP(R1)
+	POP(R0)
+	ADD(R0, R1, R2)
+	PUSH(R2) |Fin Plus
+
+	POP(R0)
+	ST(R0, i)  
+	 |Fin Affectation
+
+	|Fin Bloc
+	BR(boucle1)
+finboucle1 : |Fin Tant Que
+
+|Fin Fonction
+	MOVE(BP, SP)
+	POP(BP)
+	POP(LP)
+	RTN()
+debut :
+	CALL(main)
+	HALT()
+pile : 

@@ -1,0 +1,23 @@
+.include beta.uasm 
+.include intio.uasm 
+.options tty 
+
+CMOVE(pile,sp) 
+BR(debut) 
+|Declaration des données
+
+
+	|fonction
+main :
+	PUSH(LP)
+	PUSH(BP)
+	MOVE(SP,BP)
+|Fin Fonction
+	MOVE(BP, SP)
+	POP(BP)
+	POP(LP)
+	RTN()
+debut :
+	CALL(main)
+	HALT()
+pile : 

@@ -1,0 +1,68 @@
+.include beta.uasm 
+.include intio.uasm 
+.options tty 
+
+CMOVE(pile,sp) 
+BR(debut) 
+|Declaration des données
+i: LONG(10)
+j: LONG(20)
+k: LONG(0)
+l: LONG(0)
+
+
+	|fonction
+main :
+	PUSH(LP)
+	PUSH(BP)
+	MOVE(SP,BP)
+
+	|Affectation
+
+	|Constante
+	CMOVE(2, r0) 
+	PUSH(r0) |Fin Constante
+	POP(R0)
+	ST(R0, k)  
+	 |Fin Affectation
+
+
+	|Affectation
+
+	|Plus
+
+	|Debut Idf
+	LD(10, R0)
+	PUSH(R0) |Fin Idf
+
+	|Multiplication
+
+	|Constante
+	CMOVE(3, r0) 
+	PUSH(r0) |Fin Constante
+
+	|Debut Idf
+	LD(20, R0)
+	PUSH(R0) |Fin Idf
+	POP(R1)
+	POP(r0)
+	MUL(r0,r1,r2)
+	PUSH(r2) |Fin Multiplication
+	POP(R1)
+	POP(R0)
+	ADD(R0, R1, R2)
+	PUSH(R2) |Fin Plus
+
+	POP(R0)
+	ST(R0, l)  
+	 |Fin Affectation
+
+|Fin Fonction
+	MOVE(BP, SP)
+	POP(BP)
+	POP(LP)
+	RTN()
+debut :
+	CALL(main)
+	HALT()
+pile : 

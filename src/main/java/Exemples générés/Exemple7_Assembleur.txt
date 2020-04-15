@@ -1,0 +1,105 @@
+.include beta.uasm 
+.include intio.uasm 
+.options tty 
+
+CMOVE(pile,sp) 
+BR(debut) 
+|Declaration des données
+a: LONG(10)
+fi: LONG(0)
+fx: LONG(0)
+fy: LONG(0)
+
+
+	|fonction
+f :
+	PUSH(LP)
+	PUSH(BP)
+	MOVE(SP,BP)
+
+	|Affectation
+
+	|Constante
+	CMOVE(1, r0) 
+	PUSH(r0) |Fin Constante
+	POP(R0)
+	ST(R0, x)  
+	 |Fin Affectation
+
+
+	|Affectation
+
+	|Constante
+	CMOVE(1, r0) 
+	PUSH(r0) |Fin Constante
+	POP(R0)
+	ST(R0, y)  
+	 |Fin Affectation
+
+
+	|Affectation
+
+	|Plus
+
+	|Debut Idf
+	LD(i, R0)
+	PUSH(R0) |Fin Idf
+
+	|Plus
+
+	|Debut Idf
+	LD(x, R0)
+	PUSH(R0) |Fin Idf
+
+	|Debut Idf
+	LD(y, R0)
+	PUSH(R0) |Fin Idf
+	POP(R1)
+	POP(R0)
+	ADD(R0, R1, R2)
+	PUSH(R2) |Fin Plus
+
+	POP(R1)
+	POP(R0)
+	ADD(R0, R1, R2)
+	PUSH(R2) |Fin Plus
+
+	POP(R0)
+	ST(R0, a)  
+	 |Fin Affectation
+
+|Fin Fonction
+	MOVE(BP, SP)
+	POP(BP)
+	POP(LP)
+	RTN()
+
+	|fonction
+main :
+	PUSH(LP)
+	PUSH(BP)
+	MOVE(SP,BP)
+
+	|Appel
+
+	|Constante
+	CMOVE(3, r0) 
+	PUSH(r0) |Fin Constante
+	CALL() |Fin Appel
+
+	|Ecrire
+
+	|Debut Idf
+	LD(a, R0)
+	PUSH(R0) |Fin Idf
+	POP(r0)
+	WRINT() |Fin Ecrire
+|Fin Fonction
+	MOVE(BP, SP)
+	POP(BP)
+	POP(LP)
+	RTN()
+debut :
+	CALL(main)
+	HALT()
+pile : 
