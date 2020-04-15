@@ -22,9 +22,9 @@ public class exemple8 {
         s6.set_rang(1);
 		
 		Prog prog = new Prog();
-		Fonction main = new Fonction("main");
+		Fonction main = new Fonction("main", prog);
 		Idf a = new Idf("a");
-		Fonction f = new Fonction("f");
+		Fonction f = new Fonction("f", prog);
 		Idf x = new Idf("x");
 		Idf i = new Idf("i");
 		Idf j = new Idf("j");

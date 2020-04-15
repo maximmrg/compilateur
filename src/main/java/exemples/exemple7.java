@@ -26,7 +26,7 @@ public class exemple7 {
 		s6.set_rang(1);
 		
 		Prog prog = new Prog();
-		Fonction main = new Fonction("main");
+		Fonction main = new Fonction("main", prog);
 		Idf a = new Idf("a");
 		Idf i = new Idf("i");
 		Idf x = new Idf("x");

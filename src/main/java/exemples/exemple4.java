@@ -16,7 +16,7 @@ public class exemple4 {
         s3.set_valeur(20);
         
 		Prog prog = new Prog();
-		Fonction main = new Fonction("main");
+		Fonction main = new Fonction("main", prog);
 		
 		Idf i = new Idf("i");
 		Idf j = new Idf("j");

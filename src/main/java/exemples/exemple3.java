@@ -23,7 +23,7 @@ public class exemple3 {
 		Idf j = new Idf (20);
 		Idf k = new Idf("k");
 		Idf l = new Idf("l");
-		Fonction main = new Fonction("main");
+		Fonction main = new Fonction("main", prog);
 		
 		Affectation affect1 = new Affectation();
 		affect1.setFilsGauche(k);

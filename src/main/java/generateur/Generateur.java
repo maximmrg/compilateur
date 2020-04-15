@@ -112,10 +112,20 @@ public class Generateur {
             f = (Fonction) noeud;
         }
         resultat += f.getValeur()+" :\n";
+        resultat += "\tPUSH(LP)\n";
+        resultat += "\tPUSH(BP)\n";
+        resultat += "\tMOVE(SP,BP)\n";
+        
         for (int i = 0; i < noeud.getFils().size(); i++) {
             resultat += genererAssembleur(noeud.getFils().get(i),tds);
         }
-        resultat +=  "\tRTN() \n\t |Fin Fonction\n";
+        
+        resultat +=  "|Fin Fonction\n";
+        resultat += "\tMOVE(BP, SP)\n";
+        resultat += "\tPOP(BP)\n";
+        resultat += "\tPOP(LP)\n";
+        resultat +=  "\tRTN()\n";
+        
         return resultat;
 	}
 
@@ -136,7 +146,7 @@ public class Generateur {
 		}
 		resultat += genererAssembleur(noeud.getFils().get(1),tds)
 				+ "\tPOP(R0)\n"
-				+ "\tST(R0, "+i.getFonction()+i.getValeur()+")  \n\t |Fin Affectation\n\n"; 
+				+ "\tST(R0, "+i.getValeur()+")  \n\t |Fin Affectation\n\n"; 
 		return resultat;
 	}
 
@@ -299,7 +309,7 @@ public class Generateur {
                 + "\tPOP(r0)\n"
                 + "\tCMPEQ(r0,r1,r2)\n"
                 + "\tCMPEQC(R2,0,R3)\n"
-                + "\tPUSH(r) |Fin Difference\n";
+                + "\tPUSH(r2) |Fin Difference\n";
         return resultat;
     }
 
@@ -309,7 +319,7 @@ public class Generateur {
         if (noeud instanceof Idf) {
             i = (Idf) noeud;
         }
-        resultat += "\tLD("+i.getFonction()+i.getValeur()+", R0)\n"
+        resultat += "\tLD("+i.getValeur()+", R0)\n"
                 + "\tPUSH(R0) |Fin Idf\n";
         return resultat;
     }

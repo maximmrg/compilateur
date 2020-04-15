@@ -15,7 +15,7 @@ public class exemple5 {
         Symbole s2 = tds.ajouter("i",Symbole.CAT_GLOBAL,Symbole.SCOPE_GLOBAL,Symbole.TYPE_ENTIER);
 		
 		Prog prog = new Prog();
-		Fonction main = new Fonction("main");
+		Fonction main = new Fonction("main", prog);
 		Idf i = new Idf("i");
 		Lire lire1 = new Lire();
 		Affectation affect1 = new Affectation();

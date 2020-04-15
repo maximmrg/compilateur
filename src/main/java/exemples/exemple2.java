@@ -21,7 +21,7 @@ public class exemple2 {
 		System.out.println(tds.toString());
 		
 		 Prog prog = new Prog();
-	        Fonction main = new Fonction("main");
+	        Fonction main = new Fonction("main", prog);
 	        
 	        Idf i3 = new Idf("i");
 	        Idf j3 = new Idf("j");

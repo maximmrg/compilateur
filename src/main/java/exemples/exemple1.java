@@ -14,7 +14,7 @@ public class exemple1 {
         Symbole s = tds.ajouter("main",Symbole.CAT_FONCTION, Symbole.SCOPE_GLOBAL, Symbole.TYPE_VOID);
 		
 		Prog prog = new Prog();
-        Fonction main = new Fonction("main");
+        Fonction main = new Fonction("main", prog);
         prog.ajouterUnFils(main);
         return prog;
 

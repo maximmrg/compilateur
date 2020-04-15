@@ -18,7 +18,7 @@ public class exemple6 {
         s3.set_valeur(5);
 		
 		Prog prog = new Prog();
-		Fonction main = new Fonction("main");
+		Fonction main = new Fonction("main", prog);
 		Idf i = new Idf("i");
 		Constante c0 = new Constante(0);
 		Affectation affect1 = new Affectation();

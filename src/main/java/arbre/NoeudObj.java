@@ -35,6 +35,10 @@ class NoeudObj extends Noeud {
 	protected NoeudObj() {
 		setValeur(null);
 	}
+	
+	protected NoeudObj(Noeud noeudParent) {
+		setValeur(null);
+	}
 
 	/* (non-Javadoc)
 	 * @see fr.ul.miashs.api.arbre.Noeud#getLabel()

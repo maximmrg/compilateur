@@ -34,4 +34,11 @@ public class Fonction extends NoeudObj{
 		setValeur(valeur);
 		setFils(new ArrayList<Noeud>());
 	}
+	
+	public Fonction(Object valeur, Noeud noeudParent) {
+		super(noeudParent);
+		setCat(Categories.FONCTION);
+		setValeur(valeur);
+		setFils(new ArrayList<Noeud>());
+	}
 }
