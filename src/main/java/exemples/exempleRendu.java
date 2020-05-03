@@ -13,7 +13,7 @@ public class exempleRendu {
 		Tds tds = new Tds();
         Symbole s = tds.ajouter("main",Symbole.CAT_FONCTION, Symbole.SCOPE_GLOBAL, Symbole.TYPE_VOID);
         Symbole s2 = tds.ajouter("n", Symbole.CAT_GLOBAL, Symbole.SCOPE_GLOBAL, Symbole.TYPE_ENTIER);
-        Symbole s3 = tds.ajouter("nb", Symbole.CAT_GLOBAL, Symbole.SCOPE_GLOBAL, Symbole.TYPE_ENTIER);
+        Symbole s3 = tds.ajouter("res", Symbole.CAT_GLOBAL, Symbole.SCOPE_GLOBAL, Symbole.TYPE_ENTIER);
 		
 		Prog prog = new Prog();
         Fonction main = new Fonction("main", prog);
