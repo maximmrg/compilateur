@@ -5,6 +5,8 @@ import exemples.*;
 public class Main {
 
 	public static void main(String[] args) throws Exception {
+		System.out.println("Exemple rendu");
+		System.out.println(exempleRendu());
 		System.out.println("Exemple 1");
 		System.out.println(exemple1());
 		System.out.println("Exemple 2");
@@ -61,6 +63,11 @@ public class Main {
 	private static String exemple8() throws Exception{
 		Generateur g = new Generateur();
 		String res = g.generer(exemple8.getNoeud(), exemple8.getTds());
+		return res;
+	}
+	private static String exempleRendu() throws Exception {
+		Generateur g = new Generateur();
+		String res = g.generer(exempleRendu.getNoeud(), exempleRendu.getTds());
 		return res;
 	}
 

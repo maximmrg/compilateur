@@ -43,7 +43,7 @@ public class Main {
 			Noeud main2 = new Fonction("main");
 			prog2.ajouterUnFils(max2);
 			prog2.ajouterUnFils(main2);
-			Afficheur.afficher(prog2);
+			//Afficheur.afficher(prog2);
 			break;
 		case "2":
 			// test #2
@@ -64,7 +64,7 @@ public class Main {
 			max3.ajouterUnFils(b3);
 			prog3.ajouterUnFils(max3);
 			prog3.ajouterUnFils(main3);
-			Afficheur.afficher(prog3);
+			//Afficheur.afficher(prog3);
 			break;
 
 		default:
@@ -72,7 +72,7 @@ public class Main {
 			Noeud prog = new Prog();
 			Noeud main = new Fonction("main");
 			prog.ajouterUnFils(main);
-			Afficheur.afficher(prog);
+			//Afficheur.afficher(prog);
 			break;
 		}
 	}

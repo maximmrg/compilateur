@@ -16,6 +16,7 @@ public class exemple5 {
 		
 		Prog prog = new Prog();
 		Fonction main = new Fonction("main", prog);
+		
 		Idf i = new Idf("i");
 		Lire lire1 = new Lire();
 		Affectation affect1 = new Affectation();
@@ -46,7 +47,9 @@ public class exemple5 {
 		si1.setBlocAlors(bloc1);
 		si1.setBlocSinon(bloc2);
 		
-		main.ajouterDesFils(Arrays.asList(affect1, si1));
+		//main.ajouterDesFils(Arrays.asList(affect1, si1));
+		main.ajouterUnFils(affect1);
+		main.ajouterUnFils(si1);
 		
 		prog.ajouterUnFils(main);
 		return prog;

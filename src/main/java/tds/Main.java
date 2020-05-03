@@ -31,6 +31,8 @@ public class Main {
 	private static final Logger LOG = Logger.getLogger(Main.class.getName());
 
 	public static void main(String[] args) {
+		System.out.println("Exemple Rendu");
+		System.out.println(exempleRendu());
 		System.out.println("Exemple 1");
 		System.out.println(exemple1());
 		System.out.println("Exemple 2");
@@ -47,6 +49,29 @@ public class Main {
 		System.out.println(exemple7());
 		System.out.println("Exemple 8");
 		System.out.println(exemple8());
+	}
+	public static Tds exempleRendu() {
+		Tds tds = new Tds();
+		// remplissage
+		try {
+			Symbole s = tds.ajouter("main", Symbole.CAT_FONCTION, Symbole.SCOPE_GLOBAL, "void");
+			s.set_nbparam(0);
+			s.set_nbloc(0);
+		} catch (Exception e) {
+			LOG.warning(e.getMessage());
+		}
+		try {
+			Symbole s = tds.ajouter("n", Symbole.CAT_GLOBAL, Symbole.SCOPE_GLOBAL, "int");
+		} catch (Exception e) {
+			LOG.warning(e.getMessage());
+		}
+		try {
+			Symbole s = tds.ajouter("res", Symbole.CAT_GLOBAL, Symbole.SCOPE_GLOBAL, "int");
+			s.set_valeur(0);
+		} catch (Exception e) {
+			LOG.warning(e.getMessage());
+		}
+		return tds;
 	}
 
 	public static Tds exemple1() {

@@ -41,7 +41,7 @@ public class exemple6 {
 		Ecrire ecrire1 = new Ecrire();
 		ecrire1.setLeFils(i);
 		Bloc bloc1 = new Bloc();
-		bloc1.ajouterUnFils(inf1);
+		//bloc1.ajouterUnFils(inf1);
 		bloc1.ajouterUnFils(ecrire1);
 		bloc1.ajouterUnFils(affect2);
 		//bloc1.ajouterDesFils(Arrays.asList(ecrire1, affect2)));
