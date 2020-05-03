@@ -7,22 +7,22 @@ public class Main {
 	public static void main(String[] args) throws Exception {
 		System.out.println("Exemple rendu");
 		System.out.println(exempleRendu());
-		System.out.println("Exemple 1");
-		System.out.println(exemple1());
-		System.out.println("Exemple 2");
-		System.out.println(exemple2());
-		System.out.println("Exemple 3");
-		System.out.println(exemple3());
-		System.out.println("Exemple 4");
-		System.out.println(exemple4());
-		System.out.println("Exemple 5");
-		System.out.println(exemple5());
-		System.out.println("Exemple 6");
-		System.out.println(exemple6());
-		System.out.println("Exemple 7");
-		System.out.println(exemple7());
-		System.out.println("Exemple 8");
-		System.out.println(exemple8());
+//		System.out.println("Exemple 1");
+//		System.out.println(exemple1());
+//		System.out.println("Exemple 2");
+//		System.out.println(exemple2());
+//		System.out.println("Exemple 3");
+//		System.out.println(exemple3());
+//		System.out.println("Exemple 4");
+//		System.out.println(exemple4());
+//		System.out.println("Exemple 5");
+//		System.out.println(exemple5());
+//		System.out.println("Exemple 6");
+//		System.out.println(exemple6());
+//		System.out.println("Exemple 7");
+//		System.out.println(exemple7());
+//		System.out.println("Exemple 8");
+//		System.out.println(exemple8());
 	}
 	
 	private static String exemple1() throws Exception {

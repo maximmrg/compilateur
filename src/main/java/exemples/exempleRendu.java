@@ -14,17 +14,11 @@ public class exempleRendu {
         Symbole s = tds.ajouter("main",Symbole.CAT_FONCTION, Symbole.SCOPE_GLOBAL, Symbole.TYPE_VOID);
         Symbole s2 = tds.ajouter("n", Symbole.CAT_GLOBAL, Symbole.SCOPE_GLOBAL, Symbole.TYPE_ENTIER);
         Symbole s3 = tds.ajouter("nb", Symbole.CAT_GLOBAL, Symbole.SCOPE_GLOBAL, Symbole.TYPE_ENTIER);
-//        Symbole s4 = tds.ajouter("i", Symbole.CAT_GLOBAL, Symbole.SCOPE_GLOBAL, Symbole.TYPE_ENTIER);
-//        s4.set_valeur(0);
-//        Symbole s5 = tds.ajouter("res", Symbole.CAT_GLOBAL, Symbole.SCOPE_GLOBAL, Symbole.TYPE_ENTIER);
-//        s5.set_valeur(0);
 		
 		Prog prog = new Prog();
         Fonction main = new Fonction("main", prog);
         
         Idf n = new Idf ("n");
-        //Idf nb = new Idf("nb");
-        //Idf i = new Idf (0);
         Idf res = new Idf("res");
         Constante c0 = new Constante(0);
         Constante c1 = new Constante(1);
@@ -36,9 +30,9 @@ public class exempleRendu {
 		Affectation affect2 = new Affectation();
 		affect2.setFilsGauche(res);
 		affect2.setFilsDroit(n);
-//		Affectation affect5 = new Affectation();
-//		affect5.setFilsGauche(res);
-//		affect5.setFilsDroit(c0);
+		
+		Fonction f = new Fonction("f", main);
+		
 		
 		Bloc bloc1 = new Bloc();
 		Moins moins1 = new Moins();
@@ -47,40 +41,44 @@ public class exempleRendu {
 		Affectation affect3 = new Affectation();
 		affect3.setFilsGauche(n);
 		affect3.setFilsDroit(moins1);
+		Appel appelRec = new Appel(f);
+		appelRec.ajouterUnFils(n);
+		appelRec.ajouterUnFils(res);
+		Affectation affect4 = new Affectation();
+		affect4.setFilsGauche(res);
+		affect4.setFilsDroit(appelRec);
+		bloc1.ajouterUnFils(affect3);
+		bloc1.ajouterUnFils(affect4);
 		
 		Multiplication mult1 = new Multiplication();
 		mult1.setFilsGauche(res);
-		mult1.setFilsDroit(n);	
-		Affectation affect4 = new Affectation();
-		affect4.setFilsGauche(res);
-		affect4.setFilsDroit(mult1);
+		mult1.setFilsDroit(n);
+		Retour ret1 = new Retour("ret1");
+		ret1.ajouterUnFils(mult1);
 		
-		bloc1.ajouterUnFils(affect3);
-		bloc1.ajouterUnFils(affect4);		
-		
+		Si si1 = new Si(0);
 		Superieur sup1 = new Superieur();
 		sup1.setFilsGauche(n);
-		sup1.setFilsDroit(c1);
+		sup1.setFilsDroit(res);
+		si1.setCondition(sup1);
+		si1.setBlocAlors(bloc1);
 		
-//		Plus plus1 = new Plus();
-//		plus1.setFilsGauche(i);
-//		plus1.setFilsDroit(c1);
-//		Affectation affect2 = new Affectation();
-//		affect2.setFilsGauche(i);
-//		affect2.setFilsDroit(c1);
+		f.ajouterUnFils(si1);
+		f.ajouterUnFils(ret1);
 		
-		TantQue tq1 = new TantQue(1);
-        tq1.setCondition(sup1);
-        tq1.setBlocAlors(bloc1);
-        
-        Ecrire ecrire1 = new Ecrire();
-        ecrire1.ajouterUnFils(res);
-        
-        main.ajouterUnFils(affect1);
-        main.ajouterUnFils(affect2);
-        //main.ajouterUnFils(affect5);
-        main.ajouterUnFils(tq1);
-        main.ajouterUnFils(ecrire1);
+		Appel appelF = new Appel(f);
+		appelF.ajouterUnFils(n);
+		appelF.ajouterUnFils(res);
+		
+		Ecrire ecrireRes = new Ecrire();
+		ecrireRes.setLeFils(res);
+		
+		main.ajouterUnFils(affect1);
+		main.ajouterUnFils(affect2);
+		main.ajouterUnFils(f);
+		main.ajouterUnFils(appelF);
+		main.ajouterUnFils(ecrireRes);
+		
 		
         prog.ajouterUnFils(main);
         return prog;
